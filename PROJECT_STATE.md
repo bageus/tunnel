@@ -3,8 +3,8 @@ state_version: 1
 status: IMPLEMENTATION
 current_phase: 1
 current_milestone: P1_LOGIC_PROTOTYPE
-active_task_id: P1-002
-last_completed_task_id: P1-001
+active_task_id: P1-003
+last_completed_task_id: P1-002
 build_status: PASS
 updated: 2026-11-20
 ---
@@ -15,10 +15,10 @@ This is the compact current truth about project progress. Update it after every 
 
 ## Current outcome
 
-Спецификация `READY` (версия 5): все вопросы Discovery закрыты, MVP утверждён, встречная проходка
-отменена, вынутый материал — шесть видов. Готов первый модуль Phase 1: `core.block_grid` (сетка
-блоков чанка, состояния, повреждение, компактная сериализация) с headless-тестами. Начата P1-002:
-профиль твёрдости и реестр пород.
+Спецификация `READY` (версия 6): вопросы Discovery закрыты, MVP утверждён, профиль твёрдости
+симметричен (D033). Готовы два модуля Phase 1: `core.block_grid` (сетка блоков, состояния,
+повреждение, сериализация) и `features.rock_profile` (20 пород пяти зон, профиль по 10 000 м).
+Начата P1-003: правила удара инструментом.
 
 ## Current phase
 
@@ -32,15 +32,15 @@ P1_LOGIC_PROTOTYPE — сетка блоков, профиль твёрдост�
 
 ## Active task
 
-P1-002 — `features.rock_profile`: профиль твёрдости по длине тоннеля и реестр 22 пород пяти зон.
-Подробности в `ACTIVE_TASK.md`.
+P1-003 — `features.excavation`: правила удара инструментом по породе (повреждение блока, выдача
+фракции, отказ по твёрдости, пометка упорной породы). Подробности в `ACTIVE_TASK.md`.
 
 ## Build and validation
 
-- `python tools/validate_project.py` — проходит (READY, строгий режим), архитектура видит 2 модуля.
+- `python tools/validate_project.py` — проходит (READY, строгий режим), архитектура видит 3 модуля.
 - `python tools/validate_source_size.py` — 0 предупреждений.
-- `godot --headless --path . -s game/core/block_grid/tests/run_block_grid_tests.gd` — `0 failure(s)`,
-  exit 0 (P1-001).
+- `godot --headless --path . -s game/core/block_grid/tests/run_block_grid_tests.gd` — `0 failure(s)` (P1-001).
+- `godot --headless --path . -s game/features/rock_profile/tests/run_rock_profile_tests.gd` — `0 failure(s)` (P1-002).
 - `godot --headless --path . --editor --quit` — импорт проекта проходит (Godot 4.7.2).
 - CI: Architecture validation и Domain tests — success на коммитах до появления первого набора тестов;
   workflow теперь импортирует проект перед прогоном доменных тестов.
@@ -51,8 +51,8 @@ P1-002 — `features.rock_profile`: профиль твёрдости по дл�
 
 ## Next action
 
-Выполнить P1-002: `features.rock_profile` — реестр пород и профиль твёрдости как данные, с тестами
-без сцены.
+Выполнить P1-003: `features.excavation` — правила удара, повреждение блоков, выдача фракций и
+упорные породы, с тестами без сцены.
 
 ## Handoff notes
 

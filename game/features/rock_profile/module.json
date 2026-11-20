@@ -1,0 +1,15 @@
+{
+  "id": "features.rock_profile",
+  "layer": "features",
+  "purpose": "Own the rock registry of depth zones I-V and the symmetric hardness profile along the tunnel.",
+  "state_owner": [
+    "Rock registry data",
+    "Hardness profile segments"
+  ],
+  "public_api": [
+    "public/rock_definition.gd",
+    "public/rock_registry.gd",
+    "public/hardness_profile.gd"
+  ],
+  "dependencies": []
+}
