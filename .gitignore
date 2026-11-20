@@ -1,35 +1,32 @@
-# Godot 4+ engine cache and generated data
+# Godot generated files
 .godot/
-/android/
-
-# Imported resources cache (Godot 3.x style, harmless to keep)
 .import/
-
-# Export presets may contain signing keys and machine-specific paths
-export_presets.cfg
-export.cfg
-
-# Automatically generated translation files
-*.translation
-
-# C# / Mono
 .mono/
-data_*/
-mono_crash.*.json
 
-# Build output
-builds/
-build/
-*.exe
-*.pck
-*.apk
-*.aab
-*.zip
-
-# OS / editor clutter
+# Local/editor files
+*.tmp
+*.translation
 .DS_Store
 Thumbs.db
 desktop.ini
 .vscode/
 .idea/
-*.tmp
+
+# Export output and engine packages
+/build/
+/builds/
+/export/
+export_presets.cfg
+export.cfg
+*.pck
+*.zip
+*.exe
+*.x86_64
+*.apk
+*.aab
+*.wasm
+*.dmg
+
+# Python (validators and asset tools)
+__pycache__/
+*.pyc

@@ -1,0 +1,36 @@
+name: Domain tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  headless:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Godot 4.7.2
+        run: |
+          curl -fsSL -o godot.zip https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+          unzip -q godot.zip
+          sudo mv Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+
+      - name: Run domain tests
+        run: |
+          for t in game/*/*/tests/run_*_tests.gd; do timeout 120 godot --headless --path . -s "$t"; done
+
+      - name: Import project and run smoke tests
+        run: |
+          godot --headless --path . --editor --quit
+          for t in game/*/*/tests/run_*_smoke_test.gd; do timeout 120 godot --headless --path . -s "$t"; done
