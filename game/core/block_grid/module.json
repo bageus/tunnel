@@ -1,0 +1,15 @@
+{
+  "id": "core.block_grid",
+  "layer": "core",
+  "purpose": "Own the block grid of a rock chunk: addressing, block state, damage and compact state serialization.",
+  "state_owner": [
+    "Block grid layout of one chunk",
+    "Block state and damage per chunk"
+  ],
+  "public_api": [
+    "public/block_position.gd",
+    "public/block_state.gd",
+    "public/block_chunk.gd"
+  ],
+  "dependencies": []
+}

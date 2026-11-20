@@ -29,6 +29,7 @@ jobs:
       - name: Run domain tests
         run: |
           shopt -s nullglob
+          godot --headless --path . --editor --quit
           suites=(game/*/*/tests/run_*_tests.gd)
           if [ ${#suites[@]} -eq 0 ]; then echo "No domain test suites yet (Phase 0)."; fi
           for t in "${suites[@]}"; do timeout 120 godot --headless --path . -s "$t"; done
