@@ -1,0 +1,20 @@
+{
+  "id": "features.block_extraction",
+  "layer": "features",
+  "purpose": "Own drilling holes around a block and pulling the freed block out as one of three block sizes.",
+  "state_owner": [
+    "Drilled faces per block",
+    "Block extraction outcomes"
+  ],
+  "public_api": [
+    "public/drill_state.gd",
+    "public/drill_registry.gd",
+    "public/extraction_result.gd",
+    "public/extraction_rules.gd"
+  ],
+  "dependencies": [
+    "core.block_grid",
+    "features.rock_profile",
+    "features.excavation"
+  ]
+}
