@@ -1,0 +1,19 @@
+{
+  "id": "features.excavation",
+  "layer": "features",
+  "purpose": "Own the rules of a tool strike against rock: damage, refused hits on stubborn rock, and the fraction a broken block yields.",
+  "state_owner": [
+    "Excavation rules and strike outcomes",
+    "Stubborn block marks"
+  ],
+  "public_api": [
+    "public/tool_definition.gd",
+    "public/excavation_result.gd",
+    "public/stubborn_registry.gd",
+    "public/excavation_rules.gd"
+  ],
+  "dependencies": [
+    "core.block_grid",
+    "features.rock_profile"
+  ]
+}
